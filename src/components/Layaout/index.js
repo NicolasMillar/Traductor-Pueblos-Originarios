@@ -1,13 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import './index.scss';
+import Header from '../Header';
 
 const Layout = () =>{
     return (
         <div className="App">
-            <div className='Header'>
-                <p>Prueba</p>
+            <Header />
+            <div className='page'>
+                <Outlet/>
             </div>
-            <Outlet/>
         </div>
     )
 }
