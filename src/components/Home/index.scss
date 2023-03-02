@@ -1,3 +1,25 @@
 .home-page{
     background-color: rgb(230, 236, 250);
 }
+
+.home-page{
+
+    margin-top: 1%;
+
+    h1{
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+
+    .text-zone{
+        display: grid;
+        place-content: center;
+        margin-top: 2.5%;
+
+        p{
+            font-size: large;
+        }
+    }
+
+}
+
