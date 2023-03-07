@@ -5,10 +5,10 @@ const Home = () =>{
     return(
         <>
             <div className="container home-page">
-                <h1>Que es traductor pueblos originarios</h1>
                 <div className='text-zone'>
-                    <p>Este es un proyecto realizado por Nicolas Millar en el cual pretende llegar <br />
-                        a desarrollar un traductor/diccionario para la gran mayoría de pueblos <br />
+                    <h1>Que es traductor pueblos originarios</h1>
+                    <p>Este es un proyecto el cual pretende llegar a desarrollar  un   <br />
+                        traductor/diccionario para la gran mayoría de pueblos <br />
                         originarios de chile.
                     </p>
                     

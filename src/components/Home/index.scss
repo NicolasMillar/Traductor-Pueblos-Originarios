@@ -4,20 +4,21 @@
 
 .home-page{
 
-    margin-top: 1%;
 
-    h1{
-        font-size: xx-large;
-        font-weight: bolder;
-    }
 
     .text-zone{
+
+        padding: 12% 4%;
         display: grid;
         place-content: left;
-        margin-top: 2.5%;
+
+        h1{
+            font-size: xx-large;
+            font-weight: bolder;
+        }
 
         p{
-            font-size: large;
+            font-size: x-large;
         }
     }
 
