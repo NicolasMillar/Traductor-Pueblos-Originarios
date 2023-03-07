@@ -10,7 +10,9 @@ const Home = () =>{
                     <p>Este es un proyecto el cual pretende llegar a desarrollar  un   <br />
                         traductor/diccionario para la gran mayoría de pueblos <br />
                         originarios de chile.
-                    </p>
+                    </p>   
+                </div>
+                <div className='traductor-zone'>
                     
                 </div>
             </div>
