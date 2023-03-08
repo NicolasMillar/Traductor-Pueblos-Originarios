@@ -19,6 +19,7 @@
 
         p{
             font-size: x-large;
+            font-weight: lighter;
         }
     }
 
@@ -27,7 +28,7 @@
         width: 50%;
         display: grid;
         place-content: left;
-        padding: 12% 3%;
+        padding: 13% 2%;
         
         .select-idioma{
             height: 40px !important;

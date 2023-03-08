@@ -7,10 +7,11 @@ const Home = () =>{
         <>
             <div className="container home-page">
                 <div className='text-zone'>
-                    <h1>Que es traductor pueblos originarios</h1>
-                    <p>Este es un proyecto el cual pretende llegar a desarrollar  un   <br />
-                        traductor/diccionario para la gran mayoría de pueblos <br />
-                        originarios de chile.
+                    <h1>Traductor de pueblos originarios</h1>
+                    <p> Este proyecto tiene como objetivo desarrollar un traductor/diccionario<br />
+                        para la gran mayoría de los pueblos originarios de Chile. Debido a que<br />
+                        no tengo un dominio completo de estos idiomas, la página web solo es <br />
+                        capaz de traducir palabras y no frases completas.
                     </p>   
                 </div>
                 <div className='traductor-zone'>
