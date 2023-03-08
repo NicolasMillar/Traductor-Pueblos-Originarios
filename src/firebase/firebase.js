@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyARH34DvQ6IiuQaxGY1YsDiFEPnvcZKOeA",
-  authDomain: "traductor-pueblos-originarios.firebaseapp.com",
-  projectId: "traductor-pueblos-originarios",
-  storageBucket: "traductor-pueblos-originarios.appspot.com",
-  messagingSenderId: "743577611086",
-  appId: "1:743577611086:web:710e9ffc948f7c47030c1f",
-  measurementId: "G-3K1R6JQHZE"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN ,
+  projectId: process.env.REACT_APP_PROJECTID ,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET ,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID ,
+  appId: process.env.REACT_APP_APPID ,
+  measurementId: process.env.REACT_APP_MEASUREMENTID ,
 };
 
 
