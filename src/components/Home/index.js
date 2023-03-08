@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 const Home = () =>{
     
     const [listIdiomas, setList] = useState([]);
+    const [textEntrante, setTextEntrante] = useState();
 
     useEffect( () => {
 
@@ -16,6 +17,10 @@ const Home = () =>{
 
         featchMyApi();
     },)
+
+    const Traducir = () => {
+        console.log(textEntrante);
+    }
 
     return(
         <>
@@ -30,7 +35,7 @@ const Home = () =>{
                 </div>
                 <div className='traductor-zone'>
                     <Form>
-                        <Form.Field control={TextArea} placeholder='Escribe el texto a traducir..' />
+                        <Form.Field control={TextArea} placeholder='Escribe el texto a traducir..' onChange={ (e) => setTextEntrante(e.target.value)} />
                         <select className="select-idioma">
                             <option>Por favor selecciona un idioma..</option>
                             {
@@ -42,7 +47,7 @@ const Home = () =>{
                             }
                         </select>
                         <Form.Field control={TextArea} placeholder='El resultado de la traducción..' />
-                        <Button color="orange" size="large" >Traducir</Button>
+                        <Button color="orange" size="large" onClick={Traducir}>Traducir</Button>
                     </Form>
                 </div>
             </div>
