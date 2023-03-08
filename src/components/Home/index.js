@@ -1,7 +1,21 @@
 import './index.scss';
 import { Form, TextArea, Button } from 'semantic-ui-react';
+import { getIdiomas } from '../../firebase/firebase';
+import { useEffect, useState } from 'react';
 
 const Home = () =>{
+    
+    const [listIdiomas, setList] = useState([]);
+
+    useEffect( () => {
+
+        async function featchMyApi(){
+            const idiomas = await getIdiomas();
+            setList(idiomas); 
+        }
+
+        featchMyApi();
+    },)
 
     return(
         <>
@@ -19,6 +33,13 @@ const Home = () =>{
                         <Form.Field control={TextArea} placeholder='Escribe el texto a traducir..' />
                         <select className="select-idioma">
                             <option>Por favor selecciona un idioma..</option>
+                            {
+                                listIdiomas.map( (idiomas) => {
+                                    return(
+                                        <option value={idiomas.Idioma}>{idiomas.Idioma}</option>
+                                    );
+                                })
+                            }
                         </select>
                         <Form.Field control={TextArea} placeholder='El resultado de la traducción..' />
                         <Button color="orange" size="large" >Traducir</Button>

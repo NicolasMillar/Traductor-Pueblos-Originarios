@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore/lite';
+import { collection, getDocs, getFirestore } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -14,4 +14,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-console.log(db);
+
+
+export async function getIdiomas(){
+    const Colidiomas = collection(db, 'Idiomas');
+    const idiomasSnapshot = await getDocs(Colidiomas);
+    const idiomasList = idiomasSnapshot.docs.map(doc => doc.data());
+    return idiomasList;
+}
