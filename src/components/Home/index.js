@@ -1,12 +1,13 @@
 import './index.scss';
 import { Form, TextArea, Button } from 'semantic-ui-react';
-import { getIdiomas } from '../../firebase/firebase';
+import { getIdiomas, getTraducion } from '../../firebase/firebase';
 import { useEffect, useState } from 'react';
 
 const Home = () =>{
     
     const [listIdiomas, setList] = useState([]);
     const [textEntrante, setTextEntrante] = useState();
+    const [tra, setTra] = useState([]);
 
     useEffect( () => {
 
@@ -15,11 +16,25 @@ const Home = () =>{
             setList(idiomas); 
         }
 
-        featchMyApi();
+        if(listIdiomas === undefined){
+            featchMyApi();
+        }
+        
     },)
+
+
 
     const Traducir = () => {
         console.log(textEntrante);
+
+        async function featch(){
+            const traducciones = await getTraducion();
+            setTra(traducciones);
+        }
+
+        if(tra === undefined){
+            featch();
+        }
     }
 
     return(

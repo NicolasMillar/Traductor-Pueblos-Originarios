@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from 'firebase/firestore/lite';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -17,8 +17,28 @@ const db = getFirestore(app);
 
 
 export async function getIdiomas(){
-    const Colidiomas = collection(db, 'Idiomas');
-    const idiomasSnapshot = await getDocs(Colidiomas);
-    const idiomasList = idiomasSnapshot.docs.map(doc => doc.data());
-    return idiomasList;
+  const Colidiomas = collection(db, 'Idiomas');
+  const idiomasSnapshot = await getDocs(Colidiomas);
+  const idiomasList = idiomasSnapshot.docs.map(doc => doc.data());
+  return idiomasList;
+}
+
+export async function getTraducion(){
+  const traducciones = []
+  try {
+    const ref = collection(db, 'Traduccion');
+    const q = query(ref, where('idioma', '==', 'Mapuche'));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(doc => {
+      traducciones.push(doc);
+      console.log(doc);
+    })
+
+    return traducciones;
+
+  } catch (error) {
+    
+    console.error(error);
+  }
 }
