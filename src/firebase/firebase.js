@@ -23,22 +23,21 @@ export async function getIdiomas(){
   return idiomasList;
 }
 
-export async function getTraducion(){
+export async function getTraducion(Idiomabase){
   const traducciones = [];
   try {
-    const ref = collection(db, 'Traduccion');
-    const q = query(ref, where('idioma', '==', 'Mapuche'));
+    const q = query(collection(db, "Traduccion"), where("idioma", '==', Idiomabase));
     const querySnapshot = await getDocs(q);
-
-    querySnapshot.forEach(doc => {
-      traducciones.push(doc);
+    querySnapshot.forEach( (doc) => {
+      console.log(doc.data());
+      traducciones.push(doc.data());
     })
-
     return traducciones;
 
   } catch (error) {
     
     console.error(error);
+    console.log("pase por error")
     return traducciones;
   }
 }

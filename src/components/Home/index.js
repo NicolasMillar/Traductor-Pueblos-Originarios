@@ -16,9 +16,7 @@ const Home = () =>{
             setList(idiomas); 
         }
 
-        if(listIdiomas.length === 0){
-            featchMyApi();
-        }
+        featchMyApi();
         
     },)
 
@@ -28,13 +26,12 @@ const Home = () =>{
         console.log(textEntrante);
 
         async function featch(){
-            const traducciones = await getTraducion();
+            const traducciones = await getTraducion("Mapuche");
             setTra(traducciones);
         }
 
-        if(tra.length === 0){
-            featch();
-        }
+        featch();
+        console.log(tra);
     }
 
     return(
