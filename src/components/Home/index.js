@@ -8,6 +8,7 @@ const Home = () =>{
     const [listIdiomas, setList] = useState([]);
     const [textEntrante, setTextEntrante] = useState();
     const [tra, setTra] = useState([]);
+    const [selectIdioma, setSelectIdoma] = useState();
 
     useEffect( () => {
 
@@ -20,18 +21,19 @@ const Home = () =>{
         
     },)
 
-
+    const ObtenerIdioma = (idiomaSeleccionad) => {
+        setSelectIdoma(idiomaSeleccionad.target.value);
+    }
 
     const Traducir = () => {
         console.log(textEntrante);
-
         async function featch(){
-            const traducciones = await getTraducion("Mapuche");
+            const traducciones = await getTraducion(selectIdioma);
             setTra(traducciones);
+            console.log(tra);
         }
 
         featch();
-        console.log(tra);
     }
 
     return(
@@ -48,7 +50,7 @@ const Home = () =>{
                 <div className='traductor-zone'>
                     <Form>
                         <Form.Field control={TextArea} placeholder='Escribe el texto a traducir..' onChange={ (e) => setTextEntrante(e.target.value)} />
-                        <select className="select-idioma">
+                        <select className="select-idioma" onChange={ObtenerIdioma}>
                             <option>Por favor selecciona un idioma..</option>
                             {
                                 listIdiomas.map( (idiomas) => {
