@@ -16,7 +16,7 @@ const Home = () =>{
             setList(idiomas); 
         }
 
-        if(listIdiomas === undefined){
+        if(listIdiomas.length === 0){
             featchMyApi();
         }
         
@@ -32,7 +32,7 @@ const Home = () =>{
             setTra(traducciones);
         }
 
-        if(tra === undefined){
+        if(tra.length === 0){
             featch();
         }
     }

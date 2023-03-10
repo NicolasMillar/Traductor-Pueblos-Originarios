@@ -24,7 +24,7 @@ export async function getIdiomas(){
 }
 
 export async function getTraducion(){
-  const traducciones = []
+  const traducciones = [];
   try {
     const ref = collection(db, 'Traduccion');
     const q = query(ref, where('idioma', '==', 'Mapuche'));
@@ -32,7 +32,6 @@ export async function getTraducion(){
 
     querySnapshot.forEach(doc => {
       traducciones.push(doc);
-      console.log(doc);
     })
 
     return traducciones;
@@ -40,5 +39,6 @@ export async function getTraducion(){
   } catch (error) {
     
     console.error(error);
+    return traducciones;
   }
 }
