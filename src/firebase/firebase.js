@@ -17,16 +17,16 @@ const db = getFirestore(app);
 
 
 export async function getIdiomas(){
-  const Colidiomas = collection(db, 'Idiomas');
+  const Colidiomas = collection(db, "Idiomas");
   const idiomasSnapshot = await getDocs(Colidiomas);
   const idiomasList = idiomasSnapshot.docs.map(doc => doc.data());
   return idiomasList;
 }
 
-export async function getTraducion(Idiomabase){
+export async function getTraducion(Idiomabase, palabra){
   const traducciones = [];
   try {
-    const q = query(collection(db, "Traduccion"), where("idioma", '==', Idiomabase));
+    const q = query(collection(db, "Traduccion"), where("idioma", '==', Idiomabase), where("Base", '==', palabra));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach( (doc) => {
       console.log(doc.data());

@@ -7,7 +7,6 @@ const Home = () =>{
     
     const [listIdiomas, setList] = useState([]);
     const [textEntrante, setTextEntrante] = useState();
-    const [tra, setTra] = useState([]);
     const [selectIdioma, setSelectIdoma] = useState();
 
     useEffect( () => {
@@ -27,13 +26,13 @@ const Home = () =>{
 
     const Traducir = () => {
         console.log(textEntrante);
-        async function featch(){
+        console.log(selectIdioma);
+
+        /*async function featch(){
             const traducciones = await getTraducion(selectIdioma);
-            setTra(traducciones);
-            console.log(tra);
         }
 
-        featch();
+        featch();*/
     }
 
     return(
