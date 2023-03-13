@@ -8,6 +8,7 @@ const Home = () =>{
     const [listIdiomas, setList] = useState([]);
     const [textEntrante, setTextEntrante] = useState();
     const [selectIdioma, setSelectIdoma] = useState();
+    const [traducción, setTraduccion] = useState();
 
     useEffect( () => {
 
@@ -24,15 +25,10 @@ const Home = () =>{
         setSelectIdoma(idiomaSeleccionad.target.value);
     }
 
-    const Traducir = () => {
-        console.log(textEntrante);
-        console.log(selectIdioma);
-
-        /*async function featch(){
-            const traducciones = await getTraducion(selectIdioma);
-        }
-
-        featch();*/
+    async function Traducir  () {
+        const traducciones = await getTraducion(selectIdioma, textEntrante);
+        setTraduccion(traducciones[0].Traduccion);
+        console.log(traducción);
     }
 
     return(
@@ -59,7 +55,7 @@ const Home = () =>{
                                 })
                             }
                         </select>
-                        <Form.Field control={TextArea} placeholder='El resultado de la traducción..' />
+                        <Form.Field control={TextArea} placeholder='El resultado de la traducción..' value={traducción}/>
                         <Button color="orange" size="large" onClick={Traducir}>Traducir</Button>
                     </Form>
                 </div>

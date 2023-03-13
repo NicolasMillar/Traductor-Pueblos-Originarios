@@ -29,7 +29,6 @@ export async function getTraducion(Idiomabase, palabra){
     const q = query(collection(db, "Traduccion"), where("idioma", '==', Idiomabase), where("Base", '==', palabra));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach( (doc) => {
-      console.log(doc.data());
       traducciones.push(doc.data());
     })
     return traducciones;
